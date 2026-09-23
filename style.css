@@ -9,7 +9,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-
 a{color:inherit}
 img{max-width:100%;display:block}
 
-/* Glatko skrivanje i prikazivanje zaglavlja pri skrolanju */
+/* Glatko skrivanje i prikazivanje cijelog zaglavlja pri skrolanju */
 header{position:sticky;top:0;z-index:50;background:rgba(246,250,253,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:transform .28s ease-in-out;}
 header.hide{transform:translateY(-100%);}
 
@@ -28,11 +28,10 @@ header.hide{transform:translateY(-100%);}
 .btn-ghost:hover{background:var(--navy);color:#fff}
 .btn-sm{padding:9px 15px;font-size:.82rem}
 
-.hero{position:relative;overflow:hidden;color:#fff;min-height:520px;display:flex;align-items:flex-end}
-.hero.tall{min-height:420px}
-.hero{position:relative;overflow:hidden;color:#fff;min-height:560px;display:flex;align-items:flex-end}
-.hero.tall{min-height:460px}
-.hero img.bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover !important;object-position:center 45% !important;z-index:0}
+/* OČIŠĆENO I PODIGNUTO: Velika visina na PC-ju da uspravna slika napokon prikaže brod na dnu */
+.hero{position:relative;overflow:hidden;color:#fff;min-height:750px;display:flex;align-items:flex-end}
+.hero.tall{min-height:650px}
+.hero img.bg{position:absolute;bottom:0 !important;left:0;width:100%;height:100%;object-fit:cover !important;object-position:bottom center !important;z-index:0}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,37,64,.88) 0%,rgba(11,37,64,.35) 55%,rgba(11,37,64,.15) 100%);z-index:1}
 .hero-inner{position:relative;z-index:2;padding:52px 0 56px;width:100%;}
 .eyebrow{font-size:.8rem;letter-spacing:.04em;color:var(--spark-2);display:flex;align-items:center;gap:8px;margin-bottom:16px;text-transform:uppercase}
@@ -100,7 +99,7 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
 
 .note-badge{position:fixed;bottom:16px;left:16px;background:var(--sand);color:#2b1c00;font-weight:600;font-size:.78rem;padding:8px 14px;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:60}
 
-/* --- DETALJNO RESPONSIVE UREĐENJE ZA MOBITELE (ISPRAVLJENO PREKLAPANJE) --- */
+/* --- DETALJNO RESPONSIVE UREĐENJE ZA MOBITELE --- */
 @media (max-width: 900px) {
   header {
     background: #fff;
