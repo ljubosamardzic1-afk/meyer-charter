@@ -9,7 +9,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-
 a{color:inherit}
 img{max-width:100%;display:block}
 
-/* Glatko skrivanje i prikazivanje zaglavlja pri skrolanju (Aktivno na PC-ju) */
+/* Glatko skrivanje i prikazivanje cijelog zaglavlja pri skrolanju */
 header{position:sticky;top:0;z-index:50;background:rgba(246,250,253,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:transform .28s ease-in-out;}
 header.hide{transform:translateY(-100%);}
 
@@ -99,18 +99,17 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
 
 .note-badge{position:fixed;bottom:16px;left:16px;background:var(--sand);color:#2b1c00;font-weight:600;font-size:.78rem;padding:8px 14px;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:60}
 
-/* --- REVOLUCIJA ZA MOBITELE: TOČAN RASPODJEL NA 3 ČISTA KATA --- */
+/* --- REVOLUCIJA ZA MOBITELE: TROKATNI RASPODJEL KOJI GLATKO NESTAJE --- */
 @media (max-width: 900px) {
-  /* Fiksirana, uska traka na samom vrhu koja ne skače */
+  /* Oslobađamo transformaciju kako bi skripta mogla sakriti prozor prema gore */
   header {
-    position: sticky !important;
-    top: 0 !important;
-    transform: none !important;
+    position: sticky;
+    top: 0;
     background: #fff !important;
     padding: 10px 0 8px 0 !important;
+    transition: transform 0.28s ease-in-out !important;
   }
   
-  /* Resetiramo i pretvaramo nav kontejner u okomiti raspored tri odvojena kata */
   .nav {
     display: flex !important;
     flex-direction: column !important;
@@ -119,7 +118,7 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
     width: 100% !important;
   }
 
-  /* KAT 1: Logo dobiva punu širinu i čisto centriranje na vrhu */
+  /* KAT 1: Logo centriran na vrhu */
   .brand {
     width: 100% !important;
     justify-content: center !important;
@@ -129,30 +128,29 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
     height: 25px;
   }
 
-  /* KAT 2: Traka s linkovima koja glatko klizi prstom lijevo-desno (Zlatna sredina) */
+  /* KAT 2: Traka s linkovima koja glatko klizi prstom lijevo-desno */
   .navlinks {
     display: flex !important;
     width: 100% !important;
     justify-content: flex-start !important;
-    overflow-x: auto !important; /* Omogućuje skrolanje prstom */
-    white-space: nowrap !important; /* Blokira lomljenje u više redova */
+    overflow-x: auto !important;
+    white-space: nowrap !important;
     gap: 16px !important;
     padding: 4px 6px 6px 6px !important;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     -webkit-overflow-scrolling: touch;
   }
-  /* Potpuno skrivamo ružnu sistemsku traku za skrolanje */
   .navlinks::-webkit-scrollbar {
     display: none !important;
   }
   .navlinks a {
     font-size: 0.82rem !important;
     padding: 2px 4px !important;
-    flex: 0 0 auto !important; /* Drži elemente u punoj veličini bez stiskanja */
+    flex: 0 0 auto !important;
   }
 
-  /* KAT 3: Gumbi za kontakt smješteni u ravnini na samom dnu trake */
+  /* KAT 3: Gumbi za kontakt smješteni na dnu trake */
   .nav-cta {
     display: flex !important;
     width: 100% !important;
@@ -161,7 +159,7 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
     margin-top: 2px;
   }
   .nav-cta .btn {
-    flex: 1 !important; /* Gumbi se ravnomjerno šire pola-pola na ekranu */
+    flex: 1 !important;
     max-width: 180px;
     padding: 8px 12px !important;
     font-size: 0.76rem !important;
@@ -172,7 +170,6 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
     display: inline !important;
   }
 
-  /* Prilagodba hero odmaka zbog nove trokatne trake */
   .hero {
     min-height: auto;
   }
