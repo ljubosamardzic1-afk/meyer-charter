@@ -24,16 +24,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(246,250,253,.94);backdro
 .btn-ghost{background:transparent;border-color:var(--navy);color:var(--navy)}
 .btn-ghost:hover{background:var(--navy);color:#fff}
 .btn-sm{padding:9px 15px;font-size:.82rem}
-@media (max-width:900px){.navlinks{display:none}.nav-cta .label{display:none}}
 
-.hero{position:relative;overflow:hidden;color:#fff;min-height:520px;display:flex;align-items:flex-end}
-.hero.tall{min-height:420px}
+.hero{position:relative;overflow:hidden;color:#fff;min-height:540px;display:flex;align-items:flex-end}
+.hero.tall{min-height:440px}
 .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,37,64,.88) 0%,rgba(11,37,64,.35) 55%,rgba(11,37,64,.15) 100%);z-index:1}
-.hero-inner{position:relative;z-index:2;padding:52px 0 56px}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,37,64,.92) 0%,rgba(11,37,64,.45) 55%,rgba(11,37,64,.2) 100%);z-index:1}
+.hero-inner{position:relative;z-index:2;padding:60px 0 60px;width:100%}
 .eyebrow{font-size:.8rem;letter-spacing:.04em;color:var(--spark-2);display:flex;align-items:center;gap:8px;margin-bottom:16px;text-transform:uppercase}
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--spark);box-shadow:0 0 10px var(--spark)}
-.hero h1{font-size:clamp(2.1rem,4.4vw,3.2rem);color:#fff;margin-bottom:16px;max-width:16ch}
+.hero h1{font-size:clamp(2rem,4.4vw,3.2rem);color:#fff;margin-bottom:16px;max-width:16ch}
 .hero h1 em{font-style:normal;color:var(--spark-2)}
 .hero p.lede{font-size:1.06rem;color:#D7E6F1;max-width:50ch;margin-bottom:26px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -95,3 +94,48 @@ footer{background:var(--ink);color:#9FBBD1;padding:36px 0;font-size:.86rem}
 .foot-row a{text-decoration:none;color:#DCEAF5}
 
 .note-badge{position:fixed;bottom:16px;left:16px;background:var(--sand);color:#2b1c00;font-weight:600;font-size:.78rem;padding:8px 14px;border-radius:20px;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:60}
+
+/* --- NOVI DIO: POPRAVAK ZA MOBITELE (RESPONSIVE) --- */
+@media (max-width: 850px) {
+  .nav {
+    flex-direction: column;
+    padding: 16px 14px;
+    gap: 16px;
+  }
+  .navlinks {
+    display: flex; /* POPRAVLJENO: Više ne skriva linkove */
+    gap: 14px;
+    justify-content: center;
+    width: 100%;
+  }
+  .navlinks a {
+    font-size: 0.82rem;
+    padding: 4px 2px;
+  }
+  .nav-cta {
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-cta .label {
+    display: inline !important; /* POPRAVLJENO: Prikazuje tekst na gumbima */
+  }
+  .hero {
+    min-height: auto;
+    padding-top: 60px; /* Daje prostora odozgo zbog fiksne navigacije */
+  }
+  .hero-inner {
+    padding: 40px 0 44px;
+  }
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
