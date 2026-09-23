@@ -1,23 +1,27 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Hide header on scroll down, show on scroll up or at top
+// Potpuno sakrij header na skrol prema dolje, prikaži na skrol prema gore
 (function () {
   const header = document.querySelector('header');
   if (!header) return;
-  let lastScroll = window.pageYOffset;
+  let lastScroll = window.scrollY;
 
   window.addEventListener('scroll', () => {
-    const current = window.pageYOffset;
+    const current = window.scrollY;
 
-    if (current <= 0) {
+    // Ako je na samom vrhu, prikaži ga
+    if (current <= 10) {
       header.classList.remove('hide');
       lastScroll = current;
       return;
     }
-    if (current > lastScroll && current > 80) {
-      header.classList.add('hide');       // scrolling down
+    
+    // Ako skrola prema dolje i prošao je visinu headera, potpuno ga sakrij
+    if (current > lastScroll && current > 60) {
+      header.classList.add('hide');       
     } else if (current < lastScroll) {
-      header.classList.remove('hide');    // scrolling up
+      // Ako skrola prema gore, vrati ga natrag
+      header.classList.remove('hide');    
     }
     lastScroll = current;
   }, { passive: true });
